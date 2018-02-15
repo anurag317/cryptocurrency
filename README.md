@@ -1,3 +1,13 @@
+ng build --prod --base-href "https://anurag317.github.io/cryptocurrency/"
+
+ngh
+
+ngh --message="First deploy"
+
+ngh --branch=production
+
+ngh --dry-run
+
 # Cryptocurrency
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.6.

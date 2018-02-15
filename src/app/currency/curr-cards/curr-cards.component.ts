@@ -1,18 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { CoinApiService } from './curr-cards.service'
 @Component({
   selector: 'app-curr-cards',
   templateUrl: './curr-cards.component.html',
-  styleUrls: ['./curr-cards.component.scss']
+  styleUrls: ['./curr-cards.component.scss'],
+  providers: [CoinApiService]
 })
 export class CurrCardsComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor(private coinApiService: CoinApiService) { }
 
   ngOnInit() {
-    this.http.get('https://coinbin.org/lbc').subscribe( data => {
-      console.log(data);
-    });
+    this.coinApiService.getAllCoins().subscribe(
+      resultArray => {
+        debugger;
+        console.log(resultArray.Data);
+      },
+      error => console.log("Error :: " + error)
+    )
   }
 
 }
