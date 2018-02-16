@@ -10,15 +10,22 @@ import * as _ from 'lodash';
 })
 export class CurrCardsComponent implements OnInit {
 
+  result = [];
+
   constructor(private coinApiService: CoinApiService) { }
 
   ngOnInit() {
     this.coinApiService.getAllCoins().subscribe(
       resultArray => {
-        var filteredCoins = _.pickBy(resultArray.Data, function (value, key, object) {
-          return parseInt(value.SortOrder) < 20;
+        let arr = [];
+        _.pickBy(resultArray.Data, function (value, key, object) {
+          if (parseInt(value.SortOrder) <= 20) {
+            arr.push(value);
+          }
+          return arr;
         });
-        console.log(filteredCoins);
+        this.result = arr;
+        console.log(this.result);
       },
       error => console.log("Error :: " + error)
     )
