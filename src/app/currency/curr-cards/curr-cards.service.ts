@@ -18,6 +18,15 @@ export class CoinApiService {
             .catch(this.handleError);
     }
 
+    getCoinPriceUSD(coinName): Observable<any> {
+        return this.http
+            .get('https://min-api.cryptocompare.com/data/price?fsym=' + coinName + '&tsyms=USD')
+            .map((response: Response) => {
+                return response.json();
+            })
+            .catch(this.handleError);
+    }
+
     private handleError(error: Response) {
         return Observable.throw(error.statusText);
     }

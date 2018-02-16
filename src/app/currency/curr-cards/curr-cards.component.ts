@@ -19,8 +19,13 @@ export class CurrCardsComponent implements OnInit {
     this.coinApiService.getAllCoins().subscribe(
       resultArray => {
         let arr = [];
+        let that = this;
         _.pickBy(resultArray.Data, function (value, key, object) {
           if (parseInt(value.SortOrder) <= 20) {
+            that.coinApiService.getCoinPriceUSD(value.Name).subscribe(
+              res => {
+                value.Price = res.USD;
+              });
             arr.push(value);
           }
           return arr;
