@@ -1,13 +1,14 @@
-
 <div class="row">
-  <div class="card col-sm-4 coin-container" *ngFor="let item of result">
-    <img class="card-img-top" src="{{baseImageUrl}}{{item.ImageUrl}}" alt="Coin image">
-    <div class="card-body">
-      <h5 class="card-title">{{item.FullName}}</h5>
-      <p class="card-text">${{item.Price}}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+  <div class="card col-sm-4" *ngFor="let item of result">
+    <div class="coin-container">
+      <img class="card-img-top" src="{{baseImageUrl}}{{item.ImageUrl}}" alt="Coin image">
+      <div class="card-body">
+        <h5 class="card-title">{{item.FullName}}</h5>
+        <p class="card-text">${{item.Price}}</p>
+      </div>
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
+      </div>
     </div>
   </div>
 </div>

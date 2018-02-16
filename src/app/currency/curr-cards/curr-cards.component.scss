@@ -1,7 +1,12 @@
 .card {
     text-align: center;
+    border: none;
+    margin: 20px 0;
 }
 .coin-container {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-top: 5px solid #cdc;
+    padding: 10px;
     .card-img-top {
         max-width: 100px;
         margin: auto;
