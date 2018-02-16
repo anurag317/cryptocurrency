@@ -11,6 +11,7 @@ import * as _ from 'lodash';
 export class CurrCardsComponent implements OnInit {
 
   result = [];
+  baseImageUrl = 'https://www.cryptocompare.com';
 
   constructor(private coinApiService: CoinApiService) { }
 
